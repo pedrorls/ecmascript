@@ -5,10 +5,8 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import * as math from './math';
+import Animal from './animal';
 logTitle('Title');
 /* coding examples */
-log(math.add(2,2));
-log(math.sub(2,2));
-log(math.div(2,2));
-log(math.mult(2,2));
-log(math.PI);
+var animal = new Animal(); 
+log(animal.getClassType());
