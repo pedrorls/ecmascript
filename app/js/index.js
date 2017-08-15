@@ -9,7 +9,16 @@ import Animal from './animal';
 logTitle('Title');
 /* coding examples */
 
-for(let i = 0; i < 10; i++){
-	log(i);
-}
+ const address = {
+ 	city: 'LA',
+ 	country: 'USA',
+ 	postcode: 'LA44'
+ };
 
+ const name = {
+ 	firstName: 'Pedro',
+ 	lastName: 'Silva'
+ };
+
+const person = {...address, ...name};
+log(JSON.stringify(person));
