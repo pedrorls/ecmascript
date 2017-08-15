@@ -8,5 +8,8 @@ import * as math from './math';
 import Animal from './animal';
 logTitle('Title');
 /* coding examples */
-var animal = new Animal(); 
-log(animal.getClassType());
+
+for(let i = 0; i < 10; i++){
+	log(i);
+}
+
