@@ -8,16 +8,20 @@ import * as math from './math';
 import Animal from './animal';
 logTitle('Title');
 /* coding examples */
+const pricePropName = "PRICE";
 
-const person = {
-  name: 'Pedro',
-  cars: ['NewCivic', 'Cruze Hatch' ],
-  toString: function() {
-    //log(`${this.name} has ${this.cars}`)
-    this.cars.forEach(car => {
-      log(`${this.name} has ${car}`);
-    });
+const calculator = (name, price) => {
+  return{
+    name,
+    add(n1, n2){
+      return n1 + n2
+    },
+    [pricePropName.toLowerCase()]: price
   }
 }
 
-person.toString();
+const calc = calculator('Casio', '9.99');
+
+log(calc.name)
+log(calc.add(10, 33))
+log(calc.price)
