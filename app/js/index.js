@@ -5,13 +5,29 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import * as math from './math';
-import Animal from './animal';
 logTitle('Title');
 /* coding examples */
-const calculatePay = (yrSalary, bonus = {
-    teamBonus: 0,
-    emplyeeBonus: 0
-}) =>
-    yrSalary + bonus.teamBonus + bonus.emplyeeBonus;
 
-log(calculatePay(22000, {teamBonus: 10000, emplyeeBonus: 6000}));
+class Animal {
+    constructor(name, age){
+        log(`${name} was created`);
+        this.name = name;
+        this.age = age;
+    }
+
+    eat(){
+        log(`${this.name} is eating`);
+    }
+
+    sleep(){
+        log(`${this.name} is sleeping`);
+    }
+
+    wakeUp(){
+        log(``)
+    }
+}
+
+const valentina = new Animal("valentina", 3);
+valentina.eat();
+valentina.sleep();
