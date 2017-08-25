@@ -15,6 +15,10 @@ class Animal {
         this.age = age;
     }
 
+    static staticMethod(){
+        log('this is a static method');
+    }
+
     eat(){
         log(`${this.name} is eating`);
     }
@@ -28,6 +32,17 @@ class Animal {
     }
 }
 
-const valentina = new Animal("valentina", 3);
-valentina.eat();
-valentina.sleep();
+class Dog extends Animal{
+
+    constructor(breed, name, age){
+        super(name, age)
+        this.breed = breed;
+    }
+
+    logBreed() {
+        log(`${this.name} is a ${this.breed}`);
+    }
+}
+
+const mike = new Dog("Viralata", "Mike", 2);
+mike.logBreed();
