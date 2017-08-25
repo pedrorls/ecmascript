@@ -8,41 +8,18 @@ import * as math from './math';
 logTitle('Title');
 /* coding examples */
 
-class Animal {
-    constructor(name, age){
-        log(`${name} was created`);
-        this.name = name;
-        this.age = age;
-    }
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Data back from server");
+    }, 3000);
 
-    static staticMethod(){
-        log('this is a static method');
-    }
+    setTimeout(() =>{
+        reject("No data back from server, error was found")
+    }, 4000);
+});
 
-    eat(){
-        log(`${this.name} is eating`);
-    }
-
-    sleep(){
-        log(`${this.name} is sleeping`);
-    }
-
-    wakeUp(){
-        log(``)
-    }
-}
-
-class Dog extends Animal{
-
-    constructor(breed, name, age){
-        super(name, age)
-        this.breed = breed;
-    }
-
-    logBreed() {
-        log(`${this.name} is a ${this.breed}`);
-    }
-}
-
-const mike = new Dog("Viralata", "Mike", 2);
-mike.logBreed();
+promise.then(response =>{
+    log(response);
+}).catch(error =>{
+    log(error);
+});
