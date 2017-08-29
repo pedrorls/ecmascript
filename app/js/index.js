@@ -8,22 +8,17 @@ import * as math from './math';
 logTitle('Title');
 /* coding examples */
 
-const getNums = function* (numbers){
-    for(var i = 0; i < numbers.length; i++){
-        yield numbers[i];
-    }
-}
-
-
-const getNumsGen = getNums([1,2,3,4,5]);
-
-const interval = setInterval(() => {
-    const next = getNumsGen.next();
-    if(next.done){
-        log("Done");
-        clearInterval(interval);
-    }else {
-        const num = next.value;
-        log(num)
-    }
-}, 1000)
+const getRandomUsers = n => {
+    const fetchRandomUsers = fetch(`https://randomuser.me/api/?results=${n}`)
+    fetchRandomUsers.then(data => {
+      data.json().then(randomUsers => {
+        log(JSON.stringify(randomUsers.results.length));
+        randomUsers.results.forEach(user => {
+          const {gender, email} = user;
+          log(`${gender} - ${email}`);
+        });
+      })
+    });
+  }
+  
+  getRandomUsers(100);
